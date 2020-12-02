@@ -11,7 +11,7 @@
 
 ## Data Preprocessing
 <p><b>Training-Testing Data Split:</b> I randomly select 350 stride cycles from each walking satus, altogether 700 stride cycle is combined for model training. This training dataset is a 100*700 matrix. The rest will be utilitzed for model testing.</p> 
-'''matlab
+'''javascript
 index1=randperm(396,350);
 index2=randperm(374,350);
 
