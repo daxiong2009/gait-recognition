@@ -28,9 +28,12 @@ b_knee=[x2(:,index1_c) x5(:,index2_c)]; % testing data
 ```matlab
 [U,S,V]=svd(data-mean(data,2));
 ```
-
-<img src="image/spectral analysis.jpg">
+<figure>
+<img src="image/spectral analysis.jpg" height=300 width=300>
 <figcaption>Spectral analysis using singular value. We will retain 10 modes here</figcaption>
+</figure>
 
-<img src="image/mode testing.jpg">
+<figure>
+<img src="image/mode testing.jpg" height=300 width=300>
 <figcaption>We further eliminate 2 modes here. Therefore, 100 dimension is reduced to 8 dimensions here</figcaption>
+</figure>
