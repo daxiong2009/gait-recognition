@@ -10,16 +10,27 @@
 <p><em>from the plot, we found that the kinematics between shod walking and barefoot walking has very similar shape of graph. Although some differences can be spotted in the average plot in the third column, remeber this is the average plot and there are individual difference and variability between subject. Therefore, what set two walking status apart is not the magnitude of the plot, but the time evolution</em></p>
 
 ## Data Preprocessing
-<p><b>Training-Testing Data Split:</b> I randomly select 350 stride cycles from each walking satus, altogether 700 stride cycle is combined for model training. This training dataset is a 100*700 matrix. The rest will be utilitzed for model testing.</p> 
+<p><b>Training-Testing Data Split:</b> I randomly select 350 stride cycles from each walking satus, altogether 700 stride cycle is combined for model training. This training dataset is a 100*700 matrix. The rest will be utilitzed for model testing.</p>\
 
 ```matlab
 index1=randperm(396,350);
 index2=randperm(374,350);
 
-index1_c=~ismember(1:396,index1); 
+index1_c=~ismember(1:396,index1); % c means for testing
 index2_c=~ismember(1:374,index2);
 
-a=[x2(:,index1)  x5(:,index2)];    
-b_knee=[x2(:,index1_c) x5(:,index2_c)]; 
+a=[x2(:,index1)  x5(:,index2)];    % training data
+b_knee=[x2(:,index1_c) x5(:,index2_c)]; % testing data
 ```
 
+<p><b>Dimension reduction with PCA:</b> as one typical example of high-dimensional dataset (100 time slot), it is critical to use PCA to reduce the dimension of dataset by selecting the mode, or principle components that are most different between the two walking status. Here, i perform the spectral analysis on singular value first and retained the 95% modes. Then, i select the principal component using ranksum test
+
+```matlab
+[U,S,V]=svd(data-mean(data,2));
+```
+
+<img src="image/spectral analysis.jpg">
+<figcaption>Spectral analysis using singular value. We will retain 10 modes here</figcaption>
+
+<img src="image/mode testing.jpg">
+<figcaption>We further eliminate 2 modes here. Therefore, 100 dimension is reduced to 8 dimensions here</figcaption>
