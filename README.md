@@ -48,3 +48,6 @@ net.layers{2}.transferFcn = 'radbas';
 net.layers{3}.transferFcn = 'purelin';
 net = train(net,input,output);
 ```
+
+## Prediction With the Trained Neural Nets
+<p>Once the neural nets is trained, we can test it with the testing dataset. Remeber you need to covert you dataset to PC-score first. 
