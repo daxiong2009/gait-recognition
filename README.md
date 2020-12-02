@@ -53,6 +53,8 @@ net = train(net,input,output);
 ## Prediction With the Trained Neural Nets
 <p>Once the neural nets is trained, we can test it with the testing dataset. Remeber you need to covert you dataset to PC-score first. You can also play around with my trained neural nets: net_ankle.mat,net_knee.mat, net_hip.mat. This method yield very good prediction accuracy.</p>
 
-<img src="image/ankle1.jpg" height=500 width=600>
-<img src="image/knee1.jpg" height=500 width=600>
-<img src="image/hip1.jpg" height=500 width=600>
+<img src="image/ankle1.jpg" height=500 width=600 aligned=left> <p>Prediction using ankle kinematics</p>
+<img src="image/knee1.jpg" height=500 width=600 aligned=left>
+<p>Prediction using knee kinematics</p>
+<img src="image/hip1.jpg" height=500 width=600 aligned=left>
+<p>Prediction using hip kinematics</p>
