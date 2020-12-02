@@ -10,7 +10,7 @@
 <p><em>from the plot, we found that the kinematics between shod walking and barefoot walking has very similar shape of graph. Although some differences can be spotted in the average plot in the third column, remeber this is the average plot and there are individual difference and variability between subject. Therefore, what set two walking status apart is not the magnitude of the plot, but the time evolution</em></p>
 
 ## Data Preprocessing
-<p><b>Training-Testing Data Split:</b> I randomly select 350 stride cycles from each walking satus, altogether 700 stride cycle is combined for model training. This training dataset is a 100*700 matrix. The rest will be utilitzed for model testing.</p>\
+<p><b>Training-Testing Data Split:</b> I randomly select 350 stride cycles from each walking satus, altogether 700 stride cycle is combined for model training. This training dataset is a 100*700 matrix. The rest will be utilitzed for model testing.</p>
 
 ```matlab
 index1=randperm(396,350);
@@ -29,11 +29,22 @@ b_knee=[x2(:,index1_c) x5(:,index2_c)]; % testing data
 [U,S,V]=svd(data-mean(data,2));
 ```
 <figure>
-<img src="image/spectral analysis.jpg" height=300 width=300>
+<img src="image/spectral analysis.jpg" height=500 width=600>
 <figcaption>Spectral analysis using singular value. We will retain 10 modes here</figcaption>
 </figure>
 
 <figure>
-<img src="image/mode testing.jpg" height=300 width=300>
+<img src="image/mode testing.jpg" height=500 width=600>
 <figcaption>We further eliminate 2 modes here. Therefore, 100 dimension is reduced to 8 dimensions here</figcaption>
 </figure>
+
+## Neural Net Training
+<p>Training a neural net is the jargon used in Machine Learning Scientist, it is equivalent to model development in statistican community. I train the neural nets with PC-score rather than the original kinematics dataset. PCA is nothing but the the chagne of corrdinate system. The reason we need to change the coordinate system from the orginal carteasin space to eigenvector space is because eigenspace is a better representation of the dataset. Therefore, eigenspace is the feature space of the dataset, and we need to train the neural net with PC score.</p>
+
+```matlab
+net = feedforwardnet([45 8 43]);
+net.layers{1}.transferFcn = 'logsig';
+net.layers{2}.transferFcn = 'radbas';
+net.layers{3}.transferFcn = 'purelin';
+net = train(net,input,output);
+```
