@@ -11,14 +11,15 @@
 
 ## Data Preprocessing
 <p><b>Training-Testing Data Split:</b> I randomly select 350 stride cycles from each walking satus, altogether 700 stride cycle is combined for model training. This training dataset is a 100*700 matrix. The rest will be utilitzed for model testing.</p> 
-'''javascript
+
+'''
 index1=randperm(396,350);
 index2=randperm(374,350);
 
-index1_c=~ismember(1:396,index1); % c means for testing
+index1_c=~ismember(1:396,index1); 
 index2_c=~ismember(1:374,index2);
 
-a=[x2(:,index1)  x5(:,index2)];    % data for training
-b_knee=[x2(:,index1_c) x5(:,index2_c)]; % data for testing
+a=[x2(:,index1)  x5(:,index2)];    
+b_knee=[x2(:,index1_c) x5(:,index2_c)]; 
 '''
 
