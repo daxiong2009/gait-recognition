@@ -1,7 +1,6 @@
 # Gait Recognition Using Neural Network 
 <p>This project is presented at the poster session of 2019 Physics-Informed Machine Learning workshop in Seattle, WA.</p><br>
-<p> Gait analysis is one of the popular topics that are used in clinical research and biomechanical research. Earliest history of gait analysis dates back to Aristole, who observed people walking with bare eye. Nowadays, with the aid of modern motion capaturing system and wireless sensors, researcher is able to obtain massive amount of data in a single data collection session. Therefore, the problem of how to collect more data from subject become how to extract meaningful information from the data.</p><br>
-<p> Machine learning is one of the fastest growing fields in data science, and has been used extensively in business setting. The goal of this project is to classify the walking status (shod walking vs. barefoot walking) using neural network algorithms. <p><br>
+<p> Gait analysis is one of the popular topics that are used in clinical research and biomechanical research. Earliest history of gait analysis dates back to Aristole, who observed people walking with bare eye. Nowadays, with the aid of modern motion capaturing system and wireless sensors, researcher is able to obtain massive amount of data in a single data collection session. Therefore, the problem of how to collect more data from subject become how to extract meaningful information from the data. Machine learning, on the other hand, is one of the fastest growing fields in data science, and has been used extensively in business setting. The goal of this project is to classify the walking status (shod walking vs. barefoot walking) using neural network algorithms. <p><br>
 
 ## Raw Data Visualization 
 <p>The raw dataset contains 396 stride cycles of shod walking and 374 stride cycle of barefoot walking, which was collected from 20 female subjects. The raw data is confidential, but you can get some idea from the following plot 
@@ -52,12 +51,13 @@ net = train(net,input,output);
 
 ## Prediction With the Trained Neural Nets
 <p>Once the neural nets is trained, we can test it with the testing dataset. Remeber you need to covert you dataset to PC-score first. You can also play around with my trained neural nets: net_ankle.mat,net_knee.mat, net_hip.mat. This method yield very good prediction accuracy.</p>
-<h4>Prediction using ankle kinematics</h4>
+
+<h3>Prediction using ankle kinematics</h3>
 <img src="image/ankle1.jpg" height=500 width=600 > 
 
-<h4>Prediction using knee kinematics</h4>
+<h3>Prediction using knee kinematics</h3>
 <img src="image/knee1.jpg" height=500 width=600 >
 
-<h4>Prediction using hip kinematics</h4>
+<h3>Prediction using hip kinematics</h3>
 <img src="image/hip1.jpg" height=500 width=600 >
 
