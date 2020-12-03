@@ -30,7 +30,7 @@ b_knee=[x2(:,index1_c) x5(:,index2_c)]; % testing data
 [U,S,V]=svd(data-mean(data,2));
 ```
 
-<img src="image/spa.jpg" height=400 width=750>
+<img src="image/spa.jpg" height=350 width=800>
 <p>Based on spectral analysis, we can low-rank truncate the dataset matrix from 100 dimensions to 10 dimensions. Then based on the the RankSum test, we can further eliminate 2 dimensions. In the end, we retain only 8 modes, or principal component, for the future analysis.</p>
 
 ## Neural Net Training
