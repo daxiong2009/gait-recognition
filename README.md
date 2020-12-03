@@ -29,15 +29,9 @@ b_knee=[x2(:,index1_c) x5(:,index2_c)]; % testing data
 ```matlab
 [U,S,V]=svd(data-mean(data,2));
 ```
-<figure>
-<img src="image/spectral analysis.jpg" height=500 width=600>
-<figcaption>Spectral analysis using singular value. We will retain 10 modes here</figcaption>
-</figure>
 
-<figure>
-<img src="image/mode testing.jpg" height=500 width=600>
-<figcaption>We further eliminate 2 modes here. Therefore, 100 dimension is reduced to 8 dimensions here</figcaption>
-</figure>
+<img src="image/spa.jpg" height=500 width=550>
+<p>Based on spectral analysis, we can low-rank truncate the dataset matrix from 100 dimensions to 10 dimensions. Then based on the the RankSum test, we can further eliminate 2 dimensions. In the end, we retain only 8 modes, or principal component, for the future analysis.</p>
 
 ## Neural Net Training
 <p>Training a neural net is the jargon used in Machine Learning Scientist, it is equivalent to model development in statistican community. I train the neural nets with PC-score rather than the original kinematics dataset. PCA is nothing but the the chagne of corrdinate system. The reason we need to change the coordinate system from the orginal carteasin space to eigenvector space is because eigenspace is a better representation of the dataset. Therefore, eigenspace is the feature space of the dataset, and we need to train the neural net with PC score.</p>
@@ -55,7 +49,7 @@ net = train(net,input,output);
 <p>Once the neural nets is trained, we can test it with the testing dataset. Remeber you need to covert you dataset to PC-score first. You can also play around with my trained neural nets: net_ankle.mat,net_knee.mat, net_hip.mat. This method yield very good prediction accuracy.</p>
 
 <h3>Prediction using ankle kinematics</h3>
-<img src="image/ankle1.jpg" height=500 width=600 > 
+<img src="image/ankle1.jpg" height=500 width=600 align="right"> da da dada     
 
 <h3>Prediction using knee kinematics</h3>
 <img src="image/knee1.jpg" height=500 width=600 >
