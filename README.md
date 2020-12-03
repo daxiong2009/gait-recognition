@@ -1,6 +1,6 @@
 # Gait Recognition Using Neural Network 
-<p>This project is presented at the poster session of 2019 Physics-Informed Machine Learning workshop in Seattle, WA.</p><br>
-<p> Gait analysis is one of the popular topics that are used in clinical research and biomechanical research. Earliest history of gait analysis dates back to Aristole, who observed people walking with bare eye. Nowadays, with the aid of modern motion capaturing system and wireless sensors, researcher is able to obtain massive amount of data in a single data collection session. Therefore, the problem of how to collect more data from subject become how to extract meaningful information from the data. Machine learning, on the other hand, is one of the fastest growing fields in data science, and has been used extensively in business setting. The goal of this project is to classify the walking status (shod walking vs. barefoot walking) using neural network algorithms. <p><br>
+<p>This project was presented at the poster session of 2019 Physics-Informed Machine Learning workshop in Seattle, WA.</p><br>
+<p> Gait analysis is the popular field in clinical research and biomechanical research. Earliest history of gait analysis dates back to Aristole, who observed people walk with his naked eye. Nowadays, with the aid of modern motion capaturing system and wireless sensors, researcher is able to obtain massive amount of data in a single data collection session. Therefore, the problem every researcher facing now is how to extract meaningful information from the piles of biomechancial data. Machine learning, on the other hand, is one of the fastest growing fields in data science, and has been used extensively in business setting. The goal of this project is to classify the walking status (shod walking vs. barefoot walking) using neural network algorithms. Clinically, classification of gait may be questionable; however, what researcher should focus on is the data mining techniques used here.<p><br>
 
 <p><b>This project is advised by Dr. Patricia Kramer and Dr.Nathan Kutz. Dr. Patricia Kramer is the chair and professor of Dept. of Anthropology at Univeristy of Washington; Dr.Nathan Kutz is the professor of Applied Mathematics.</b></p>
 
@@ -30,8 +30,8 @@ b_knee=[x2(:,index1_c) x5(:,index2_c)]; % testing data
 [U,S,V]=svd(data-mean(data,2));
 ```
 
-<img src="image/spa.jpg" height=350 width=800>
-<p>Based on spectral analysis, we can low-rank truncate the dataset matrix from 100 dimensions to 10 dimensions. Then based on the the RankSum test, we can further eliminate 2 dimensions. In the end, we retain only 8 modes, or principal component, for the future analysis.</p>
+<img src="image/spa.jpg" height=350 width=850>
+<p>Based on spectral analysis, we can low-rank truncate the dataset matrix from 100 dimensions to 10 dimensions. Then based on the the RankSum test, we can further eliminate 2 dimensions. In the end, we retain only 8 modes, or principal component, for the future analysis.</p><br>
 
 ## Neural Net Training
 <p>Training a neural net is the jargon used in Machine Learning Scientist, it is equivalent to model development in statistican community. I train the neural nets with PC-score rather than the original kinematics dataset. PCA is nothing but the the chagne of corrdinate system. The reason we need to change the coordinate system from the orginal carteasin space to eigenvector space is because eigenspace is a better representation of the dataset. Therefore, eigenspace is the feature space of the dataset, and we need to train the neural net with PC score.</p>
@@ -43,17 +43,17 @@ net.layers{2}.transferFcn = 'radbas';
 net.layers{3}.transferFcn = 'purelin';
 net = train(net,input,output);
 ```
-<img src="image/Capture.JPG">
+<img src="image/Capture.JPG"><br>
 
 ## Prediction With the Trained Neural Nets
 <p>Once the neural nets is trained, we can test it with the testing dataset. Remeber you need to covert you dataset to PC-score first. You can also play around with my trained neural nets: net_ankle.mat,net_knee.mat, net_hip.mat. This method yield very good prediction accuracy.</p>
 
-<h3>Prediction using ankle kinematics</h3>
-<img src="image/ankle1.jpg" height=500 width=600 align="right"> da da dada     
 
 <h3>Prediction using knee kinematics</h3>
-<img src="image/knee1.jpg" height=500 width=600 >
+<img src="image/knee1.jpg" height=500 width=600 align="left">
+<p><b>True positive(shod):</b>43/46= 93.5%</p>
+<p><b>True negative(barefoot):</b>24/24=100%</p>
 
-<h3>Prediction using hip kinematics</h3>
-<img src="image/hip1.jpg" height=500 width=600 >
+
+
 
