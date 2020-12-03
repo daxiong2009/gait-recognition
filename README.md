@@ -17,14 +17,15 @@
 index1=randperm(396,350);
 index2=randperm(374,350);
 
-index1_c=~ismember(1:396,index1); % c means for testing
+index1_c=~ismember(1:396,index1); 
 index2_c=~ismember(1:374,index2);
 
 a=[x2(:,index1)  x5(:,index2)];    % training data
 b_knee=[x2(:,index1_c) x5(:,index2_c)]; % testing data
 ```
 
-<p><b>Dimension reduction with PCA:</b> as one typical example of high-dimensional dataset (100 time slot), it is critical to use PCA to reduce the dimension of dataset by selecting the mode, or principle components that are most different between the two walking status. Here, i perform the spectral analysis on singular value first and retained the 95% modes. Then, i select the principal component using ranksum test
+<p><b>Dimension reduction with PCA:</b> as one typical example of high-dimensional dataset (100 time slot), it is critical to use PCA to reduce the dimension of dataset by selecting the mode, or principle components that are most different between the two walking status. Here, i perform the spectral analysis on singular value first and retained the 95% modes. Then, i select the principal component using ranksum test.<p>
+<p>PCA is commonly implemented through singular value decomposition. The mathematical discussion of singular value decomposition is byond the scopre, you are recommended to read some linear algebra textbook. MATLAB has build-in function for singular value decomposition: </p>
 
 ```matlab
 [U,S,V]=svd(data-mean(data,2));
