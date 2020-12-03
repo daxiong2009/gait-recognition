@@ -50,7 +50,8 @@ net = train(net,input,output);
 
 
 <h3>Prediction using knee kinematics</h3>
-<img src="image/knee1.jpg" height=500 width=600 align="left">
+<img src="image/knee1.jpg" height=300 width=500 align="left">
+<br><br>
 <p><b>True positive(shod):</b>43/46= 93.5%</p>
 <p><b>True negative(barefoot):</b>24/24=100%</p>
 
